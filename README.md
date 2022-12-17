@@ -23,13 +23,12 @@ Trello:
 
 News API:
 - https://aylien.com/product/news-api
-- 
+
 Google Doc Sprint:
 - https://docs.google.com/document/d/1HWu0sCU6g2u53KAK781sMs6Sw9DCXxS9MvQyUPr6UFA/edit
 
 
 ## Implemetation
 
----
 ### Search
 A context search functionality build by tf-idf and lsi, which can recommend most top similar n news from database providing the search keyword. 
