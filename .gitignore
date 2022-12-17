@@ -1,0 +1,7 @@
+.DS_Store
+
+# Local LSI cache for search engin.
+search/lsi_model_mm
+search/lsi_model_mm.index
+search/tfidf_model_mm
+search/tfidf_model_mm.index
