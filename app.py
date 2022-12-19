@@ -3,11 +3,10 @@ from flask_cors import CORS
 import json
 import logging
 from datetime import datetime
-
 import utils.rest_utils as rest_utils
 
-
 from application_services.imdb_artists_resource import IMDBArtistResource
+from application_services.recommendation_resource import RecommendationResource
 from application_services.UsersResource.user_service import UserResource
 from database_services.RDBService import RDBService as RDBService
 
@@ -59,6 +58,11 @@ def demo(parameter1=None):
     print("/api/demo/<parameter> received/returned:\n", msg)
 
     rsp = Response(json.dumps(msg), status=200, content_type="application/json")
+    return rsp
+@app.route("/trending/<page_id>", methods=["GET", "POST", "PUT", "DELETE"])
+def trending(page_id):
+    print("Entered DynamoDB")
+    rsp = Response(RecommendationResource.get_by_page_id(page_id), status=200, content_type="application/json")
     return rsp
 
 
