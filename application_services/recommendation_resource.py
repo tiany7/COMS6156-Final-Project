@@ -56,4 +56,4 @@ class RecommendationResource(BaseRDBApplicationResource):
                 "dislike": top_k[top_k_id]["dislike"],
             })
 
-        return str(response)
+        return response

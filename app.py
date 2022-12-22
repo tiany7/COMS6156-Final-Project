@@ -1,4 +1,4 @@
-from flask import Flask, Response, request
+from flask import Flask, Response, request, make_response
 from flask_cors import CORS
 import json
 import logging
@@ -66,7 +66,7 @@ def demo(parameter1=None):
 def trending(page_id):
     print("Entered DynamoDB")
     rsp = RecommendationResource.get_by_page_id(page_id)
-    rsp = Response(rsp, status=200, content_type="application/json")
+    rsp = {"data": rsp}
     return rsp
 
 
