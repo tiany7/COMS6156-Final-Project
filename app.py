@@ -17,6 +17,7 @@ logger.setLevel(logging.INFO)
 app = Flask(__name__)
 CORS(app)
 
+
 ##################################################################################################################
 
 # DFF TODO A real service would have more robust health check methods.
@@ -59,12 +60,14 @@ def demo(parameter1=None):
 
     rsp = Response(json.dumps(msg), status=200, content_type="application/json")
     return rsp
-@app.route("/trending/<page_id>", methods=["GET", "POST", "PUT", "DELETE"])
+
+
+@app.route("/api/recommendation/<page_id>", methods=["GET", "POST", "PUT", "DELETE"])
 def trending(page_id):
     print("Entered DynamoDB")
-    rsp = Response(RecommendationResource.get_by_page_id(page_id), status=200, content_type="application/json")
+    rsp = RecommendationResource.get_by_page_id(page_id)
+    rsp = Response(rsp, status=200, content_type="application/json")
     return rsp
-
 
 
 @app.route('/')
@@ -75,6 +78,7 @@ def hello_world():
 @app.route('/gabrielle')
 def hello_gabrielle():
     return '<u>Yay! Gabrielle is here!!!!!!!</u>'
+
 
 @app.route('/imdb/artists/<prefix>')
 def get_artists_by_prefix(prefix):
@@ -94,6 +98,7 @@ def user_collection():
     rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
     return rsp
 
+
 @app.route('/users/<user_id>', methods=['GET', 'PUT', 'DELETE'])
 def specific_user(user_id):
     """
@@ -104,6 +109,7 @@ def specific_user(user_id):
     :return:
     """
     pass
+
 
 @app.route('/<db_schema>/<table_name>/<column_name>/<prefix>')
 def get_by_prefix(db_schema, table_name, column_name, prefix):
