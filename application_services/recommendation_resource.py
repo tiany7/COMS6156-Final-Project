@@ -29,12 +29,13 @@ class RecommendationResource(BaseRDBApplicationResource):
         return news_info
 
     @staticmethod
-    def get_by_page_id(page_id, page_num=10):
-        page_id = int(page_id)
+    def get_by_page_id(limit, offset):
+        limit = int(limit)
+        offset = int(offset)
         news_info = RecommendationResource._get_connection().scan()["Items"]
         like_dislike = []
 
-        for item in news_info[:10]:
+        for item in news_info:
             cur_news = json.loads(requests.get(f"https://7k9oonv11m.execute-api.us-east-1.amazonaws.com/Prod/news?NewsID={item['id']}").text)
             like_dislike.append({
                 "id": item["id"],
@@ -47,7 +48,7 @@ class RecommendationResource(BaseRDBApplicationResource):
 
         top_k = sorted(like_dislike, key=lambda k: k['real_like'])
         response = []
-        for top_k_id in range(page_num*(page_id-1), page_id*page_num):
+        for top_k_id in range(offset, offset+limit):
             response.append({
                 "id": top_k[top_k_id]["id"],
                 "title": top_k[top_k_id]["title"],

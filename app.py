@@ -62,10 +62,10 @@ def demo(parameter1=None):
     return rsp
 
 
-@app.route("/api/recommendation/<page_id>", methods=["GET", "POST", "PUT", "DELETE"])
-def trending(page_id):
+@app.route("/api/recommendation/limit=<limit>&offset=<offset>", methods=["GET", "POST", "PUT", "DELETE"])
+def trending(limit, offset):
     print("Entered DynamoDB")
-    rsp = RecommendationResource.get_by_page_id(page_id)
+    rsp = RecommendationResource.get_by_page_id(limit, offset)
     rsp = {"data": rsp}
     return rsp
 
