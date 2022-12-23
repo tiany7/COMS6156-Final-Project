@@ -1,5 +1,14 @@
 # 6156 Final Project: Daily News Notifications
 
+#Team member:
+- YuanHan Tian
+- Jiming Yu(jy3252)
+- Jack Wang
+- Yilin Li
+- Weichen Li
+- DengPan Yuan
+- Hangpu Cao
+
 ## Goal
 Build up a system can support: 
 - Subscription Service + Notification/Push Service  Owner: [Owner: Yuanhan Tian]
