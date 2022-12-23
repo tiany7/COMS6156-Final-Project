@@ -4,6 +4,7 @@
 - Dengpan Yuan: dy2436
 - Yilin Li: yl4838
 - Jiming Yu: jy3252
+- Hangpu Cao: hc3346
 
 
 ## Goal
@@ -14,7 +15,7 @@ Build up a system can support:
 - Article Base Service  [Owner: Yilin Li]
 - Recommender Service  [Owner: Weichen Li]
 - Search Service ->CRUD [Owner: Dengpan Yuan]
-- OAuth2 Service： [Owner: Hangpu Cao]
+- OAuth2 Service： [Owner: Hangpu Cao] OAuth2-api (Google) link: https://accounts.google.com/o/oauth2/auth?response_type=token&redirect_uri=http://localhost:4000&scope=https://www.googleapis.com/auth/userinfo.profile&client_id=742040869843-eth0f4ace1hgfue0aekimnvop21k5j83.apps.googleusercontent.com&access_type=online
 
 ## Useful Resource
 Github Repo: 
