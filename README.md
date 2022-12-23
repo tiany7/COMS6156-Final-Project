@@ -1,9 +1,10 @@
 # 6156 Final Project: Daily News Notifications
 
 ## Team
-Dengpan Yuan: dy2436
-Yilin Li: yl4838
-Jiming Yu: jy3252
+- Dengpan Yuan: dy2436
+- Yilin Li: yl4838
+- Jiming Yu: jy3252
+
 
 ## Goal
 Build up a system can support: 
