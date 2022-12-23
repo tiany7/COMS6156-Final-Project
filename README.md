@@ -4,6 +4,7 @@
 - Dengpan Yuan: dy2436
 - Yilin Li: yl4838
 - Jiming Yu: jy3252
+- Weichen Li: wl2886
 
 
 ## Goal
