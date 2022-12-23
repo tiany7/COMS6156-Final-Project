@@ -20,6 +20,10 @@ Github Repo:
 Trello:
 - https://trello.com/b/y0iFXwOU/cs6156-sprint-1
 
+SNS:
+- https://us-east-1.console.aws.amazon.com/sns/v3/home?region=us-east-1#/dashboard
+
+
 
 News API:
 - https://aylien.com/product/news-api
@@ -32,3 +36,6 @@ Google Doc Sprint:
 
 ### Search
 A context search functionality build by tf-idf and lsi, which can recommend most top similar n news from database providing the search keyword. 
+
+### Subscribe/Unsubscribe
+A functionality that allows the user to subscribe/unsubscribe other users. It also provides user the APIs to get the list of subscriptions, fans and activity histories. 
