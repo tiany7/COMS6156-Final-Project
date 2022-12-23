@@ -1,5 +1,5 @@
-
 import re
+import boto3
 import pandas as pd
 import spacy
 import string
@@ -47,20 +47,7 @@ def spacy_tokenizer(sentence):
     #return tokens.
     return tokens
 
-def request_data():
-    url = 'https://api.aylien.com/news/stories?aql=industries:({{id:in.are}}) AND categories:({{taxonomy:aylien AND id:ay.biz}}) AND language:(en) AND sentiment.title.polarity:(negative neutral positive)&per_page=50&cursor=*&published_at.end=NOW&published_at.start=NOW-7DAYS/DAY'
-    payload = {}
-
-    headers = {
-        'X-Application-ID': 'dcf2074d',
-        'X-Application-Key': 'b53a0a447ae382b8030df674cf9ed946'
-    }
-
-    response = requests.request("GET", url, headers=headers, data = payload)
-    return response.json()
-
-def lambda_func(search_term, top_n_similar):
-    # TODO: change the data fectch from API to AWS database.
+def data_prep(news_l, search_term, top_n_similar):
     news_l = [[i["title"], i["body"]] for i in request_data()["stories"]]
     df = pd.DataFrame(news_l, columns=["title", "body"])
     df["news_tokenized"] = df["body"].map(lambda x: spacy_tokenizer(x))
@@ -109,5 +96,47 @@ def lambda_func(search_term, top_n_similar):
             break
     return pd.DataFrame(news_names, columns=["Relevence", "News Title", "News Content"])
 
-if __name__ == "__main__":
-    print(lambda_func("China Economy", 5))
+
+def lambda_handler(event, context):
+    cur_page = 0
+    
+    if 'page' in event and int(event['page']) > 0:
+        cur_page = int(event['page'])
+    
+    offset = 0
+    if 'offset' in event and int(event['offset']) > 0:
+        offset = int(event['offset'])
+    
+    with open("news_rel.json") as f:
+        rel_data = json.load(f)
+    
+    
+    title_l = rel_data["News Title"]
+    content_l = rel_data["News Content"]
+    
+    search_data = data_prep([[i,j] for i,j in zip(title_l, content_l)], event['query_string'], 100)
+    
+    
+    rel_l = search_data["Relevence"]
+    end_idx = cur_page*(offset+1)
+    next_offset = offset+1
+    if cur_page*(offset+1) > len(rel_l):
+        end_idx = len(rel_l)
+        next_offset = offset
+    
+    ret_l = []
+    # packet the data
+    for i in range(cur_page*offset, end_idx):
+        ret_l.append({
+            "id": i,
+            "relevence": rel_l[str(i)],
+            "title": title_l[str(i)],
+            "content": content_l[str(i)]
+        })
+    
+    
+    return {
+        'statusCode': 200,
+        'next_offset': next_offset,
+        'data': ret_l
+    }

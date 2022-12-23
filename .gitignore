@@ -5,3 +5,5 @@ search/lsi_model_mm
 search/lsi_model_mm.index
 search/tfidf_model_mm
 search/tfidf_model_mm.index
+search/news_data.json
+search/news_rel.json
