@@ -1,5 +1,8 @@
 # 6156 Final Project: Daily News Notifications
 
+## Team
+Dengpan Yuan: dy2436
+
 ## Goal
 Build up a system can support: 
 - Subscription Service + Notification/Push Service  Owner: [Owner: Yuanhan Tian]
@@ -31,6 +34,11 @@ News API:
 Google Doc Sprint:
 - https://docs.google.com/document/d/1HWu0sCU6g2u53KAK781sMs6Sw9DCXxS9MvQyUPr6UFA/edit
 
+Demo Slides
+- https://docs.google.com/presentation/d/1KUbxh3La3HDYr-s0N6dRKhm_1szxVRnJFiiIZrE4p3Y/edit?usp=sharing
+
+Retool
+- https://tiany7.retool.com/editor/e11b04e6-7da1-11ed-8f67-7743436a77a8/coms6156
 
 ## Implemetation
 
