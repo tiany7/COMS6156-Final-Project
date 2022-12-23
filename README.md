@@ -3,7 +3,7 @@
 ## Goal
 Build up a system can support: 
 - Subscription Service + Notification/Push Service  Owner: [Owner: Yuanhan Tian]
-- Comment Service -> CRUD [Owner: Jiming Yu]
+- Comment Service -> CRUD [Owner: Jiming Yu] comment-api link: https://xbo0hw7f2k.execute-api.us-east-1.amazonaws.com/comment_news/message
 - Like/Dislike Service  [Owner: Jack Wang] 
 - Article Base Service  [Owner: Yilin Li]
 - Recommender Service  [Owner: Weichen Li]
