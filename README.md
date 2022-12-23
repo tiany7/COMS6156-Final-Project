@@ -5,6 +5,7 @@
 - Yilin Li: yl4838
 - Jiming Yu: jy3252
 - Hangpu Cao: hc3346
+- Weichen Li: wl2886
 
 
 ## Goal
