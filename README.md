@@ -45,6 +45,9 @@ Demo Slides
 Retool
 - https://tiany7.retool.com/editor/e11b04e6-7da1-11ed-8f67-7743436a77a8/coms6156
 
+Video
+- https://m.youtube.com/watch?v=BzQcsAu1q28&ab_channel=JackWang
+
 ## Implemetation
 
 ### Search
